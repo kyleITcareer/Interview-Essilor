@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="icon">
+    <img src="../assets/Essilor_Logo_SMDM_Framed_RGB_200.png" alt="Essilor company logo">
+  </div>
+  <div class="icon-small">
+    <img src="../assets/Essilor_Logo_SMDM_Framed_RGB_50.png" alt="Essilor company logo">
+  </div>
+  <h1 class="title-text">Patient Search</h1>
+</div>
+
+<div class="search-form">
+  <label for="search">Search by Patient</label>
+  <input id="search" class="search-input" type="text" [formControl]="search" required>
+  <button (click)="onsubmit()" class="search-btn">Search</button>
+  <div *ngIf="searchInvalid" class="danger">Search field cannot be empty</div>
+  <div *ngIf="priorSearches.length" class='prior-search'>
+    Current Searches:
+    <div *ngFor="let search of priorSearches; let i = index">
+      <div class='search-item' (click)="removeSearchItem(i)">{{search}} X </div>
+    </div>
+  </div>
+</div>
